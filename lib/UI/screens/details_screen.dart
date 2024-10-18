@@ -41,7 +41,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
         builder: (context, AsyncSnapshot<Cocktail> snapshot) {
           if(snapshot.hasData) {
             return SingleChildScrollView(
-              padding: const EdgeInsets.only(bottom: 36),
+              padding: const EdgeInsets.only(bottom: 40),
               child: Container(
                 padding: const EdgeInsets.all(8),
                 child: Column(
