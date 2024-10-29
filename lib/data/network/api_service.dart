@@ -24,7 +24,7 @@ class ApiService {
     } catch(e) {
       throw Exception('Failed to fetch cocktails list: $e');
     }
-
+    
   }
 
   Future<Cocktail> fetchCocktailById(Cocktail cocktail) async {
@@ -42,7 +42,7 @@ class ApiService {
         throw Exception('Failed to load cocktails');
       }
     } catch(e) {
-      throw Exception('Failed to fetch coctail by id: $e');
+      throw Exception('Failed to fetch cocktail by id: $e');
     }
     
 
