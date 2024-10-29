@@ -24,7 +24,7 @@ class ApiService {
     } catch(e) {
       throw Exception('Failed to fetch cocktails list: $e');
     }
-    
+
   }
 
   Future<Cocktail> fetchCocktailById(Cocktail cocktail) async {
