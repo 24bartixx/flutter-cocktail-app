@@ -1,16 +1,24 @@
-# cocktails
+# 🍸 Cocktail App 🍸
+## Table of contents
+* Features
+* Technologies
+* Screenshots
+* Reflections
 
-A new Flutter project.
+### Features
+The app consists of 3 pages
+* Main page with 'See cocktails button'
+* Cocktails page with ListView presenting cocktails with search functionality
+* Details page presenting specific of the chosen drink
+  
+#### Navigation
+    Main Page -> Cocktails Page -> Details Page
 
-## Getting Started
+### Technologies
+* Flutter: Cross-platform framework for building the UI
+* Dart: Programming language for writing Flutter applications
+* HTTP Package: For making network requests and fetching cocktail data from the API
 
-This project is a starting point for a Flutter application.
+### Screenshots
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### Reflection
