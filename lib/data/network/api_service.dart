@@ -27,6 +27,26 @@ class ApiService {
 
   }
 
+  Future<(int, List<Cocktail>)> fetchCocktailsPage(int pageNum) async {
+    try{
+      final httpResponse = await http.get(Uri.parse("$baseURL/cocktails/?page=$pageNum"));
+      
+      debugPrint("HTTP response code: ${httpResponse.statusCode}\tPage: $pageNum");
+
+      if(httpResponse.statusCode == 200) {
+        int pagesCount = jsonDecode(httpResponse.body)['meta']['lastPage'];
+        final List<dynamic> jsonData = jsonDecode(httpResponse.body)['data'];
+        List<Cocktail> cocktailsToReturn = jsonData.map((object) => Cocktail.fromJson(object as Map<String, dynamic>)).toList();
+        return (pagesCount, cocktailsToReturn);
+      } else {
+        throw Exception('Failed to load cocktails');
+      }
+    } catch(e) {
+      throw Exception('Failed to fetch cocktails page: $e');
+    }
+  }
+
+
   Future<Cocktail> fetchCocktailById(Cocktail cocktail) async {
 
     try {
@@ -44,9 +64,6 @@ class ApiService {
     } catch(e) {
       throw Exception('Failed to fetch cocktail by id: $e');
     }
-    
-
-    
   }
 
 }

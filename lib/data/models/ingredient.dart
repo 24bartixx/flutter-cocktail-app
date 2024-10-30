@@ -25,8 +25,6 @@ class Ingredient {
   });
 
   factory Ingredient.fromJson(Map<String, dynamic> json) {
-    print('kurw');
-    print(json['id']);
     return switch(json) {
       {
         "id": int id,
