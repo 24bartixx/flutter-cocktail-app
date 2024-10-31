@@ -1,0 +1,24 @@
+{
+    "seeCocktailsButton": "See cocktails!",
+    "homeScreenQuestion": "Are you ready to make a cocktail?",
+
+    "cocktailPageTitle": "Cocktails",
+    "searchCocktailsTextField": "Search cocktails",
+
+    "detailsPageTitle": "Drink details",
+    "categoryDetails": "Category: ",
+    "glassDetails": "Glass: ",
+    "alcoholDetails": "Contains alcohol: ",
+    "instructionsDetails": "Instructions: : ",
+    "ingredientsDetails": "Ingredients: ",
+    "descriptionDetails": "Description",
+    "noDescriptionToast": "No description!",
+    "percentageDetails": "Percentage: ",
+    "typeDetails": "Type: ",
+    "measureDetails": "Measure: ",
+
+    "backText": "Back",
+    "yesText": "Yes",
+    "noText": "No"
+
+}

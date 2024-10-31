@@ -1,6 +1,7 @@
 import 'package:cocktails/data/models/cocktail.dart';
 import 'package:cocktails/data/network/api_service.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class CocktailsScreen extends StatefulWidget {
 
@@ -71,7 +72,7 @@ class _CocktailsScreenState extends State<CocktailsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Cocktails')
+        title: Text(AppLocalizations.of(context)!.cocktailPageTitle)
       ),      
       body: Column(
         children: [
@@ -88,7 +89,7 @@ class _CocktailsScreenState extends State<CocktailsScreen> {
             child:TextField(
               controller: searchController,
               decoration: InputDecoration(
-                labelText: 'Search cocktails',
+                labelText: AppLocalizations.of(context)!.searchCocktailsTextField,
                 icon: const Icon(Icons.search),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(12)
@@ -149,12 +150,11 @@ class _CocktailsScreenState extends State<CocktailsScreen> {
       )
     );
   }
-
+  
   @override
   void dispose() {
     searchController.dispose();
     scrollController.dispose();
     super.dispose();
   }
-
 }

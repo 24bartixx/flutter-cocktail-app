@@ -3,6 +3,8 @@ import 'package:cocktails/UI/screens/details_screen.dart';
 import 'package:cocktails/UI/screens/home_screen.dart';
 // import 'package:cocktails/data/network/api_service.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 void main() {
   runApp(MyApp());
@@ -14,7 +16,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
 
     return MaterialApp(
-      title: "Coctails App",
+      title: "Cocktails",
       theme: ThemeData(
 
       ),
@@ -23,7 +25,17 @@ class MyApp extends StatelessWidget {
         '/': (context) => HomeScreen(),
         '/cocktails': (context) => CocktailsScreen(),
         '/details': (context) => DetailsScreen()
-      }
+      },
+      localizationsDelegates: const [
+        AppLocalizations.delegate, 
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      supportedLocales: const [
+        Locale('en'),
+        Locale('pl')
+      ],
     );
   }
 

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class HomeScreen extends StatelessWidget {
 
@@ -10,9 +11,9 @@ class HomeScreen extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Text(
-                'Are You ready to make cocktails?', 
-                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+              Text(
+                AppLocalizations.of(context)!.homeScreenQuestion, 
+                style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
                 textAlign: TextAlign.center
               ),
               const SizedBox(height: 8),
@@ -24,7 +25,7 @@ class HomeScreen extends StatelessWidget {
                 onPressed: () {
                   Navigator.pushNamed(context, '/cocktails');
                 }, 
-                child: const Text('See cocktails!', style: TextStyle(fontSize: 18))
+                child: Text(AppLocalizations.of(context)!.seeCocktailsButton, style: const TextStyle(fontSize: 18))
               )
             ]
           )

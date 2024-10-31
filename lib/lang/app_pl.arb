@@ -1,0 +1,24 @@
+{
+    "seeCocktailsButton": "Zobacz drinki!",
+    "homeScreenQuestion": "Jesteś gotowy, aby zrobić jakiegoś drinka?",
+
+    "cocktailPageTitle": "Drinki",
+    "searchCocktailsTextField": "Szukaj drinków",
+
+    "detailsPageTitle": "Szczegóły drinku",
+    "categoryDetails": "Kategoria: ",
+    "glassDetails": "Szklanka: ",
+    "alcoholDetails": "Posiada alkohol: ",
+    "instructionsDetails": "Sposób przygotowania: ",
+    "ingredientsDetails": "Składniki: ",
+    "descriptionDetails": "Opis",
+    "noDescriptionToast": "Brak opisu!",
+    "percentageDetails": "Procenty: ",
+    "typeDetails": "Typ: ",
+    "measureDetails": "Ilość: ",
+
+    "backText": "Powrót",
+    "yesText": "Tak",
+    "noText": "No"
+
+}

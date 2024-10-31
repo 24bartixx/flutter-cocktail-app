@@ -2,6 +2,7 @@ import 'package:cocktails/data/models/cocktail.dart';
 import 'package:cocktails/data/network/api_service.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class DetailsScreen extends StatefulWidget{
 
@@ -34,7 +35,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Cocktail Details')
+        title: Text(AppLocalizations.of(context)!.detailsPageTitle)
       ),
       body: FutureBuilder<Cocktail> (
         future: _fetchCocktailById(),
@@ -62,7 +63,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
                       alignment: Alignment.centerRight,
                       margin: const EdgeInsets.only(right: 24, bottom: 12),
                       child: Text(
-                        "Category: ${snapshot.data!.category}", 
+                        AppLocalizations.of(context)!.categoryDetails + (snapshot.data!.category), 
                         style: const TextStyle(fontSize: 16, color: Color.fromRGBO(100, 100, 100, 1))
                       )
                     ),
@@ -74,9 +75,9 @@ class _DetailsScreenState extends State<DetailsScreen> {
                         Text.rich(
                           TextSpan(
                             children: [
-                              const TextSpan(
-                                text: 'Glass: ',
-                                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)
+                              TextSpan(
+                                text: AppLocalizations.of(context)!.glassDetails,
+                                style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold)
                               ),
                               TextSpan(
                                 text: snapshot.data!.glass,
@@ -89,19 +90,22 @@ class _DetailsScreenState extends State<DetailsScreen> {
                         Text.rich(
                           TextSpan(
                             children: [
-                              const TextSpan(
-                                text: 'Alcoholic: ',
-                                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)
+                              TextSpan(
+                                text: AppLocalizations.of(context)!.alcoholDetails,
+                                style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold)
                               ),
                               TextSpan(
-                                text: snapshot.data!.alcoholic ? 'Yes' : 'No',
+                                text: snapshot.data!.alcoholic 
+                                  ? AppLocalizations.of(context)!.yesText 
+                                  : AppLocalizations.of(context)!.noText,
                                 style: const TextStyle(fontSize: 16)
                               )
                             ]
                           )
                         ),
                         const SizedBox(height: 8),
-                        const Text('Instructions: ', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold), textAlign: TextAlign.justify),
+                        Text(AppLocalizations.of(context)!.instructionsDetails, 
+                          style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold), textAlign: TextAlign.justify),
                         const SizedBox(height: 4),
                         Container(
                           margin: const EdgeInsets.symmetric(horizontal: 16),
@@ -110,7 +114,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
                         const SizedBox(height: 4),
                         Container(
                           margin: const EdgeInsets.only(bottom: 8),
-                          child: const Text('Ingredients:', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold))
+                          child: Text(AppLocalizations.of(context)!.ingredientsDetails, style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold))
                         ),
                         Column(
                           children: 
@@ -132,19 +136,19 @@ class _DetailsScreenState extends State<DetailsScreen> {
                                         context: context, 
                                         builder: (BuildContext context) {
                                           return AlertDialog(
-                                            title: const Text('Description'),
+                                            title: Text(AppLocalizations.of(context)!.descriptionDetails),
                                             content: SingleChildScrollView(child: Text(ingredient.description!, textAlign: TextAlign.justify)),
                                             actions: <Widget>[
                                               TextButton(
-                                                onPressed: () => Navigator.pop(context, 'Cancel'), 
-                                                child: const Text('Cancel')
+                                                onPressed: () => Navigator.pop(context, 'Back'), 
+                                                child: Text(AppLocalizations.of(context)!.backText)
                                               )
                                             ]
                                           );
                                         }
                                       ) 
                                       : Fluttertoast.showToast(
-                                        msg: 'No description!',
+                                        msg: AppLocalizations.of(context)!.noDescriptionToast,
                                         toastLength: Toast.LENGTH_SHORT,
                                         gravity: ToastGravity.BOTTOM,
                                         fontSize: 18
@@ -167,12 +171,14 @@ class _DetailsScreenState extends State<DetailsScreen> {
                                       Text.rich(
                                         TextSpan(
                                           children: [
-                                            const TextSpan(
-                                              text: 'Alcohol: ',
-                                              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)
+                                            TextSpan(
+                                              text: AppLocalizations.of(context)!.alcoholDetails,
+                                              style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold)
                                             ),
                                             TextSpan(
-                                              text: (ingredient.alcohol ? 'Yes' : 'No'),
+                                              text: (ingredient.alcohol 
+                                                ? AppLocalizations.of(context)!.yesText
+                                                : AppLocalizations.of(context)!.noText),
                                               style: const TextStyle(fontSize: 16)
                                             )
                                           ]
@@ -182,9 +188,9 @@ class _DetailsScreenState extends State<DetailsScreen> {
                                         ? Text.rich(
                                           TextSpan(
                                             children: [
-                                              const TextSpan(
-                                                text: 'Percentage: ',
-                                                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)
+                                              TextSpan(
+                                                text: AppLocalizations.of(context)!.percentageDetails,
+                                                style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold)
                                               ),
                                               TextSpan(
                                                 text: ("${ingredient.percentage}%"),
@@ -198,9 +204,9 @@ class _DetailsScreenState extends State<DetailsScreen> {
                                         ? Text.rich(
                                           TextSpan(
                                             children: [
-                                              const TextSpan(
-                                                text: 'Type: ',
-                                                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)
+                                              TextSpan(
+                                                text: AppLocalizations.of(context)!.typeDetails,
+                                                style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold)
                                               ),
                                               TextSpan(
                                                 text: ingredient.type,
@@ -214,9 +220,9 @@ class _DetailsScreenState extends State<DetailsScreen> {
                                         ? Text.rich(
                                           TextSpan(
                                             children: [
-                                              const TextSpan(
-                                                text: 'Measure: ',
-                                                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)
+                                              TextSpan(
+                                                text: AppLocalizations.of(context)!.measureDetails,
+                                                style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold)
                                               ),
                                               TextSpan(
                                                 text: ingredient.measure,
